@@ -1,6 +1,6 @@
 package objetos;
 
-public class objetos implements java.io.Serializable{
+public class Objetos implements java.io.Serializable{
     
     private String nome;
     private String descricao;
@@ -8,7 +8,7 @@ public class objetos implements java.io.Serializable{
     private boolean movel;
     private suporte conteudo;
 
-    public objetos(String Nome, String Descricao, suporte Conteudo){
+    public Objetos(String Nome, String Descricao, suporte Conteudo){
         this.nome = Nome;
         this.descricao = Descricao;
         this.conteudo = Conteudo;
@@ -16,7 +16,7 @@ public class objetos implements java.io.Serializable{
         this.movel = true;
     }
 
-    public objetos(String Nome, String Descricao, boolean Capturavel, boolean Movel, suporte Conteudo){
+    public Objetos(String Nome, String Descricao, boolean Capturavel, boolean Movel, suporte Conteudo){
         this.nome = Nome;
         this.descricao = Descricao;
         this.conteudo = Conteudo;
@@ -40,7 +40,7 @@ public class objetos implements java.io.Serializable{
         this.descricao = Descricao;
     }
 
-    public boolean isCapturavel() {
+    public boolean Capturavel() {
         return capturavel;
     }
 
@@ -48,7 +48,7 @@ public class objetos implements java.io.Serializable{
         this.capturavel = Capturavel;
     }
 
-    public boolean isMovel() {
+    public boolean Movel() {
         return movel;
     }
 
@@ -72,11 +72,11 @@ public class objetos implements java.io.Serializable{
         return "NÃO PODE FECHAR " + nome + "PORQUE NAO EH CONTEUDO.";
     }
 
-    public String descicao(){
+    public String descricao(){
         return nome + " " + descricao;
     }
 
-    private boolean contem(bolsa Conteudo){
+    private boolean contem(Bolsa Conteudo){
         suporte spt;
         Boolean naBolsa = false;
 
@@ -90,8 +90,8 @@ public class objetos implements java.io.Serializable{
         return naBolsa;
     }
 
-    public boolean inclui(objetos Obj){
-        return (Obj instanceof bolsa) && (this.contem((bolsa) obj));
+    public boolean inclui(Objetos Obj){
+        return (Obj instanceof Bolsa) && (this.contem((Bolsa) Obj));
     }
 
 }

@@ -1,6 +1,6 @@
 package geral;
 
-public class word {
+public enum Palavras {
     SUBSTANTIVO,
     VERBO,
     ADJETIVO,
@@ -8,5 +8,5 @@ public class word {
     ARTIGO,
     PREPOSICAO,
     DESCONHECIDO,
-    ERRO;
+    ERRO
 }

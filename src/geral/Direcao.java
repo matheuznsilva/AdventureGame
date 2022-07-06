@@ -1,6 +1,6 @@
 package geral;
 
-public class direcao {
+public enum Direcao {
     NORTE,
     SUL,
     LESTE,

@@ -1,22 +1,22 @@
 package objetos;
 
-public class bolsa extends suporte implements java.io.Serializable{
+public class Bolsa extends suporte{
     private boolean openable;
     private boolean estaAberta;
 
-    public bolsa(String Nome, String Descricao, listaDeObjetos Lista, suporte Conteudo){
+    public Bolsa(String Nome, String Descricao, ListaDeObjetos Lista, suporte Conteudo){
         super(Nome, Descricao, Lista, Conteudo);
         openable = false;
         estaAberta = true;
     }
 
-    public bolsa(String Nome, String Descricao, listaDeObjetos Lista, boolean podeAbrir, boolean Aberta, suporte Conteudo){
-        super(Nome, Descricao, Lista, podeAbrir, Aberta, Conteudo);
+    public Bolsa(String Nome, String Descricao, boolean podePegar, boolean podeMover, boolean podeAbrir, boolean Aberta, ListaDeObjetos Obj, suporte Conteudo){
+        super(Nome, Descricao, podePegar, podeMover, Obj, Conteudo);
         openable = podeAbrir;
         estaAberta = Aberta;
     }
 
-    public boolean isOpenable() {
+    public boolean Openable() {
         return openable;
     }
 
@@ -24,13 +24,15 @@ public class bolsa extends suporte implements java.io.Serializable{
         this.openable = openable;
     }
 
-    public boolean isEstaAberta() {
+    public boolean estaAberta() {
         return estaAberta;
     }
 
     public void setEstaAberta(boolean estaAberta) {
         this.estaAberta = estaAberta;
     }
+
+    
 
     public String abrir(){
         String Str;
@@ -67,7 +69,7 @@ public class bolsa extends suporte implements java.io.Serializable{
     public String Descricao(){
         String Str;
 
-        Str = super.Descricao();
+        Str = super.descricao();
         if(openable){
             if(estaAberta){
                 Str += " (ABERTA)";

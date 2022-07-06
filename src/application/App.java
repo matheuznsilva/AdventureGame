@@ -2,29 +2,31 @@ package application;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import entities.Jogo;
 
 public class App {
 
-    static Jogo jogo
+    public static Jogo jogo;
     public static void main(String[] args) throws Exception {
 
         BufferedReader in;
         String ent;
-        String exit;
+        String exit = " ";
 
+        jogo = new Jogo();
         in = new BufferedReader(new InputStreamReader(System.in));
         jogo.printIntroducao();
 
         do{
-            System.out.print("Comando: ");
+            System.out.print("-> ");
             ent = in.readLine();
             switch(ent) {
                 case "carregar":{
-                    carregaJogo();
+                    //carregaJogo();
                     break;
                 }
                 case "salvar": {
-                    salvarJogo();
+                    //salvarJogo();
                     break;
                 }
                 default: {
@@ -33,7 +35,7 @@ public class App {
                 }
             }
             if(!exit.trim().isEmpty()){
-                jogo.print(exit);
+                jogo.printString(exit);
             }
         } while(!"sair".equals(ent));
         

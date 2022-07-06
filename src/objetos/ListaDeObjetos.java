@@ -2,11 +2,11 @@ package objetos;
 
 import java.util.ArrayList;
 
-public class listaDeObjetos  extends ArrayList<objetos> implements java.io.Serializable{
+public class ListaDeObjetos  extends ArrayList<Objetos>{
 
     private String nome;
 
-    public listaDeObjetos(String Nome){
+    public ListaDeObjetos(String Nome){
         super();
         nome = Nome;
     }

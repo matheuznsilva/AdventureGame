@@ -1,24 +1,24 @@
 package geral;
 
-import objetos.listaDeObjetos;
-import objetos.objetos;
+import objetos.ListaDeObjetos;
+import objetos.Objetos;
 import objetos.suporte;
 
-public class suporteGeral implements java.io.Serializable{
+public class SuporteGeral implements java.io.Serializable{
     
-    private objetos obj;
+    private Objetos obj;
     private suporte spt;
 
-    public suporteGeral(objetos Objetos, suporte Suporte){
+    public SuporteGeral(Objetos Objetos, suporte Suporte){
         obj = Objetos;
         spt = Suporte;
     }
 
-    public objetos getObjetos(){
+    public Objetos getObjetos(){
         return obj;
     }
 
-    public void setObjetos(objetos Objetos){
+    public void setObjetos(Objetos Objetos){
         this.obj = Objetos;
     }
 
@@ -30,7 +30,7 @@ public class suporteGeral implements java.io.Serializable{
         this.spt = Suporte;
     }
 
-    public listaDeObjetos getLista(){
+    public ListaDeObjetos getLista(){
         return spt.getObjetos();
     }
 }

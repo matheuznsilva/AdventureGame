@@ -1,15 +1,16 @@
 package objetos;
 
-public class ouro extends objetos implements java.io.Serializable{
+
+public class Ouro extends Objetos{
     
     private int valor;
 
-    public ouro(String Nome, String Descricao, suporte Conteudo){
+    public Ouro(String Nome, String Descricao, suporte Conteudo){
         super(Nome, Descricao, Conteudo);
         this.valor = 0;
     
     }
-    public ouro(String Nome, String Descricao, int Valor, suporte Conteudo){
+    public Ouro(String Nome, String Descricao, int Valor, suporte Conteudo){
         super(Nome, Descricao, Conteudo);
         this.valor = Valor;
     }
