@@ -6,9 +6,9 @@ public class Objetos implements java.io.Serializable{
     private String descricao;
     private boolean capturavel;
     private boolean movel;
-    private suporte conteudo;
+    private Suporte conteudo;
 
-    public Objetos(String Nome, String Descricao, suporte Conteudo){
+    public Objetos(String Nome, String Descricao, Suporte Conteudo){
         this.nome = Nome;
         this.descricao = Descricao;
         this.conteudo = Conteudo;
@@ -16,7 +16,7 @@ public class Objetos implements java.io.Serializable{
         this.movel = true;
     }
 
-    public Objetos(String Nome, String Descricao, boolean Capturavel, boolean Movel, suporte Conteudo){
+    public Objetos(String Nome, String Descricao, boolean Capturavel, boolean Movel, Suporte Conteudo){
         this.nome = Nome;
         this.descricao = Descricao;
         this.conteudo = Conteudo;
@@ -56,11 +56,11 @@ public class Objetos implements java.io.Serializable{
         this.movel = Movel;
     }
 
-    public suporte getConteudo() {
+    public Suporte getConteudo() {
         return conteudo;
     }
 
-    public void setConteudo(suporte Conteudo) {
+    public void setConteudo(Suporte Conteudo) {
         this.conteudo = Conteudo;
     }
 
@@ -76,8 +76,8 @@ public class Objetos implements java.io.Serializable{
         return nome + " " + descricao;
     }
 
-    private boolean contem(Bolsa Conteudo){
-        suporte spt;
+    private boolean contem(Recipiente Conteudo){
+        Suporte spt;
         Boolean naBolsa = false;
 
         spt = this.getConteudo();
@@ -91,7 +91,7 @@ public class Objetos implements java.io.Serializable{
     }
 
     public boolean inclui(Objetos Obj){
-        return (Obj instanceof Bolsa) && (this.contem((Bolsa) Obj));
+        return (Obj instanceof Recipiente) && (this.contem((Recipiente) Obj));
     }
 
 }

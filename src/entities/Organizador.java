@@ -19,6 +19,7 @@ public class Organizador {
         vocabulario.put("caixa", Palavras.SUBSTANTIVO);
         vocabulario.put("botao", Palavras.SUBSTANTIVO);
         vocabulario.put("fruta", Palavras.SUBSTANTIVO);
+        vocabulario.put("cenoura", Palavras.SUBSTANTIVO);
         vocabulario.put("peito", Palavras.SUBSTANTIVO);
         vocabulario.put("moeda", Palavras.SUBSTANTIVO);
         vocabulario.put("porta", Palavras.SUBSTANTIVO);
@@ -38,6 +39,11 @@ public class Organizador {
         vocabulario.put("esquilo", Palavras.SUBSTANTIVO);
         vocabulario.put("arvore", Palavras.SUBSTANTIVO);
         vocabulario.put("capivara", Palavras.SUBSTANTIVO);
+        vocabulario.put("machado", Palavras.SUBSTANTIVO);
+        vocabulario.put("ouro", Palavras.SUBSTANTIVO);
+        vocabulario.put("diamante", Palavras.SUBSTANTIVO);
+        vocabulario.put("lanterna", Palavras.SUBSTANTIVO);
+        vocabulario.put("mochila", Palavras.SUBSTANTIVO);
         vocabulario.put("teste", Palavras.VERBO);
         vocabulario.put("obter", Palavras.VERBO);
         vocabulario.put("i", Palavras.VERBO);
@@ -56,7 +62,14 @@ public class Organizador {
         vocabulario.put("a", Palavras.VERBO);
         vocabulario.put("cima", Palavras.VERBO);
         vocabulario.put("baixo", Palavras.VERBO);
+        vocabulario.put("trancar", Palavras.VERBO);
+        vocabulario.put("destrancar", Palavras.VERBO);
+        vocabulario.put("esconder", Palavras.VERBO);
+        vocabulario.put("defender", Palavras.VERBO);
+        vocabulario.put("escrever", Palavras.VERBO);
+        vocabulario.put("jogar", Palavras.VERBO);
         vocabulario.put("q", Palavras.VERBO);
+        vocabulario.put("exit", Palavras.VERBO);
         vocabulario.put("sair", Palavras.VERBO);
         vocabulario.put("A", Palavras.ARTIGO);
         vocabulario.put("um", Palavras.ARTIGO);
@@ -64,6 +77,7 @@ public class Organizador {
         vocabulario.put("dentro", Palavras.PREPOSICAO);
         vocabulario.put("em", Palavras.PREPOSICAO);
         vocabulario.put("no", Palavras.PREPOSICAO);        
+        vocabulario.put("na", Palavras.PREPOSICAO);        
     }
 
     static String processamentoDePalavras(List<TiposDePalavras> comando){
@@ -81,6 +95,8 @@ public class Organizador {
             mensagem = "NAO POSSO FAZER ISSO PORQUE '" + palavra4.getPalavra() + "' NÃO É UM OBJETO!";
         } else{
             switch (palavra1.getPalavra() + palavra3.getPalavra()){
+                case "colocarno":
+                case "colocarna":
                 case "colocar":{
                     mensagem = App.jogo.colocarNaBolsa(palavra2.getPalavra(), palavra4.getPalavra());
                     break;

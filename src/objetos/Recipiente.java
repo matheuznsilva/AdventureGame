@@ -1,16 +1,16 @@
 package objetos;
 
-public class Bolsa extends suporte{
+public class Recipiente extends Suporte{
     private boolean openable;
     private boolean estaAberta;
 
-    public Bolsa(String Nome, String Descricao, ListaDeObjetos Lista, suporte Conteudo){
+    public Recipiente(String Nome, String Descricao, ListaDeObjetos Lista, Suporte Conteudo){
         super(Nome, Descricao, Lista, Conteudo);
         openable = false;
         estaAberta = true;
     }
 
-    public Bolsa(String Nome, String Descricao, boolean podePegar, boolean podeMover, boolean podeAbrir, boolean Aberta, ListaDeObjetos Obj, suporte Conteudo){
+    public Recipiente(String Nome, String Descricao, boolean podePegar, boolean podeMover, boolean podeAbrir, boolean Aberta, ListaDeObjetos Obj, Suporte Conteudo){
         super(Nome, Descricao, podePegar, podeMover, Obj, Conteudo);
         openable = podeAbrir;
         estaAberta = Aberta;

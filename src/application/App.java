@@ -37,7 +37,7 @@ public class App {
             if(!exit.trim().isEmpty()){
                 jogo.printString(exit);
             }
-        } while(!"sair".equals(ent));
+        } while(!"q".equals(ent));
         
     }
 }

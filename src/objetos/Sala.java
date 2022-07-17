@@ -1,8 +1,11 @@
 package objetos;
 
-public class Sala extends suporte{
+public class Sala extends Suporte {
 
     private Sala w, s, a, d, cima, baixo;
+    private Porta porta;
+
+
 
     public Sala(){
         super("Nova Sala","", null, null);
@@ -23,6 +26,19 @@ public class Sala extends suporte{
         this.d = d;
         this.cima = cima;
         this.baixo = baixo;
+        setObjetos(Obj);
+    } 
+     public void iniciar(String Nome, String Descricao, Sala w, Sala s, Sala a, Sala d, Sala cima, Sala baixo, ListaDeObjetos Obj, Boolean status, Boolean saida) {
+        setNome(Nome);
+        setDescricao(Descricao);
+        this.w = w;
+        this.s = s;
+        this.a = a;
+        this.d = d;
+        this.cima = cima;
+        this.baixo = baixo;
+        //this.porta = Porta().setTrancada(status);
+        //this.porta = Porta().setSaida(saida);
         setObjetos(Obj);
     }
 

@@ -2,26 +2,26 @@ package objetos;
 
 import geral.SuporteGeral;
 
-public class suporte extends Objetos{
+public class Suporte extends Objetos{
 
     private ListaDeObjetos listaObjetos;
     private SuporteGeral SuporteGeral = null;
     private String objetoStr = "";
 
-    public suporte(String Nome, String Descricao, ListaDeObjetos LO, suporte Conteudo) {
+    public Suporte(String Nome, String Descricao, ListaDeObjetos LO, Suporte Conteudo) {
         super(Nome, Descricao, Conteudo);
         listaObjetos = LO;
     }
 
-    public suporte(String Nome, String Descricao, boolean Capturavel, boolean Movel, ListaDeObjetos LO, suporte Conteudo) {
+    public Suporte(String Nome, String Descricao, boolean Capturavel, boolean Movel, ListaDeObjetos LO, Suporte Conteudo) {
         super(Nome, Descricao, Capturavel, Movel, Conteudo);
         listaObjetos = LO;
     }
 
-    public static Bolsa paraBolsa(Objetos Obj){
-        Bolsa Bag = null;
-        if(Obj instanceof Bolsa){
-            Bag = (Bolsa) Obj;
+    public static Recipiente paraBolsa(Objetos Obj){
+        Recipiente Bag = null;
+        if(Obj instanceof Recipiente){
+            Bag = (Recipiente) Obj;
         }
         return Bag;
     }
@@ -30,9 +30,9 @@ public class suporte extends Objetos{
         return listaObjetos.size();
     }
 
-    private void encontrarObjeto(suporte SP, String nome){
+    private void encontrarObjeto(Suporte SP, String nome){
         boolean encontrou = false;
-        Bolsa Bag;
+        Recipiente Bag;
         for (Objetos obj : SP.getObjetos()) {
             if (obj.getNome().equals(nome)) {
                 SuporteGeral = new SuporteGeral(obj, SP);
@@ -47,13 +47,13 @@ public class suporte extends Objetos{
         }
     }
 
-    private void paraDescreverObjeto(suporte SP){
+    private void paraDescreverObjeto(Suporte SP){
         ListaDeObjetos listaObj = SP.getObjetos();
-        Bolsa Bag;
+        Recipiente Bag;
 
         for (Objetos obj : listaObj) {
             String nomeConteudo = "";
-            if (obj.getConteudo() instanceof Bolsa) {
+            if (obj.getConteudo() instanceof Recipiente) {
                 nomeConteudo = " [ em " + obj.getConteudo().getNome() + " ]";
             }
             objetoStr += obj.getNome() + nomeConteudo + "\n";
@@ -98,7 +98,7 @@ public class suporte extends Objetos{
         listaObjetos.add(Obj);
     }
 
-    protected void moverObjeto(Objetos Obj, suporte origem, suporte destino){
+    protected void moverObjeto(Objetos Obj, Suporte origem, Suporte destino){
         origem.remover(Obj);
         destino.adicionar(Obj);
         Obj.setConteudo(destino);

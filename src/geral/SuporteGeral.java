@@ -2,14 +2,14 @@ package geral;
 
 import objetos.ListaDeObjetos;
 import objetos.Objetos;
-import objetos.suporte;
+import objetos.Suporte;
 
 public class SuporteGeral implements java.io.Serializable{
     
     private Objetos obj;
-    private suporte spt;
+    private Suporte spt;
 
-    public SuporteGeral(Objetos Objetos, suporte Suporte){
+    public SuporteGeral(Objetos Objetos, Suporte Suporte){
         obj = Objetos;
         spt = Suporte;
     }
@@ -22,11 +22,11 @@ public class SuporteGeral implements java.io.Serializable{
         this.obj = Objetos;
     }
 
-    public suporte getSuporte() {
+    public Suporte getSuporte() {
         return spt;
     }
 
-    public void setSuporte(suporte Suporte) {
+    public void setSuporte(Suporte Suporte) {
         this.spt = Suporte;
     }
 

@@ -1,16 +1,16 @@
 package objetos;
 
 
-public class Ouro extends Objetos{
+public class Tesouro extends Objetos{
     
     private int valor;
 
-    public Ouro(String Nome, String Descricao, suporte Conteudo){
+    public Tesouro(String Nome, String Descricao, Suporte Conteudo){
         super(Nome, Descricao, Conteudo);
         this.valor = 0;
     
     }
-    public Ouro(String Nome, String Descricao, int Valor, suporte Conteudo){
+    public Tesouro(String Nome, String Descricao, int Valor, Suporte Conteudo){
         super(Nome, Descricao, Conteudo);
         this.valor = Valor;
     }

@@ -3,7 +3,7 @@ package objetos;
 import geral.Direcao;
 import geral.SuporteGeral;
 
-public class Personagem extends suporte{
+public class Personagem extends Suporte{
     
     public Personagem(String Nome, String Descricao, ListaDeObjetos Obj, Sala SL){
         super(Nome, Descricao, Obj, SL);
@@ -87,7 +87,7 @@ public class Personagem extends suporte{
         SuporteGeral SG = objetoAqui(nome);;
         Objetos Obj;
         String Str = "";
-        Bolsa Bag;
+        Recipiente Bag;
 
         if(SG == null){
             Str = "NAO VEJO " + nome + " AQUI!";
@@ -116,14 +116,14 @@ public class Personagem extends suporte{
         SuporteGeral SG = objetoAqui(nome);;
         Objetos Obj;
         String Str = "";
-        suporte SP;
+        Suporte SP;
 
         if(SG == null){
             Str = "NAO VEJO " + nome + " AQUI!";
         } else{
             Obj = SG.getObjetos();
             SP = SG.getSuporte();
-            if(SP instanceof Bolsa){
+            if(SP instanceof Recipiente){
                 Str = "O(A) " + Obj.getNome() + " ESTA DENTRO DO(A)" + SP.getNome() + "\n";
             }
             Str += Obj.descricao();
@@ -135,7 +135,7 @@ public class Personagem extends suporte{
         String Str;
         SuporteGeral SG, contSG;
         Objetos Obj;
-        Bolsa Bag;
+        Recipiente Bag;
 
         SG = objetoNoInventario(nome);
         contSG = objetoAqui(nomeRecipiente);
@@ -146,7 +146,7 @@ public class Personagem extends suporte{
             Str = nomeRecipiente + "NAO ESTA AQUI";
         } else{
             Obj = SG.getObjetos();
-            Bag = paraBolsa(Obj);
+            Bag = paraBolsa(contSG.getObjetos());
             if((Bag == null)){
                 Str = "VOCE NAO PODE GUARDAR " + nome + " DENTRO DE " + nomeRecipiente; 
             } else if(Obj == Bag){
@@ -159,7 +159,7 @@ public class Personagem extends suporte{
                 Str = "VOCE NAO PODE GUARDAR " + nome + " DENTRO DE " + nomeRecipiente + " PORQUE " + nomeRecipiente + " JA ESTA DENTRO DE " + nome; 
             } else{
                 moverObjeto(Obj, SG.getSuporte(), Bag);
-                Str = "VOCE GUARDOU" + nome + " DENTRO DE " + nomeRecipiente;
+                Str = "VOCE GUARDOU " + nome + " DENTRO DE " + nomeRecipiente;
             }
         }
         return Str;
@@ -170,7 +170,7 @@ public class Personagem extends suporte{
         SuporteGeral SG;
         Objetos Obj;
         ListaDeObjetos LO;
-        suporte SP;
+        Suporte SP;
 
         SG = objetoAqui(nome);
         if(SG == null){
@@ -184,7 +184,7 @@ public class Personagem extends suporte{
             } else{
                 if(Obj.Capturavel()){
                     moverObjeto(Obj, SP, this);
-                    if(SP instanceof Bolsa){
+                    if(SP instanceof Recipiente){
                         Str = "VOCE PEGOU " + nome + " DE " + SP.getNome(); 
                     } else{
                         Str = nome + " JA ESTA NA SUA MAO"; 
