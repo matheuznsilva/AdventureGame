@@ -3,9 +3,7 @@ package objetos;
 public class Sala extends Suporte {
 
     private Sala w, s, a, d, cima, baixo;
-    private Porta porta;
-
-
+    private Porta porta, porta2;
 
     public Sala(){
         super("Nova Sala","", null, null);
@@ -17,7 +15,7 @@ public class Sala extends Suporte {
         this.baixo = null;
     }
 
-    public void iniciar(String Nome, String Descricao, Sala w, Sala s, Sala a, Sala d, Sala cima, Sala baixo, ListaDeObjetos Obj) {
+    public void iniciar(String Nome, String Descricao, Sala w, Sala s, Sala a, Sala d, Sala cima, Sala baixo, ListaDeObjetos Obj, Porta porta, Porta porta2) {
         setNome(Nome);
         setDescricao(Descricao);
         this.w = w;
@@ -26,19 +24,8 @@ public class Sala extends Suporte {
         this.d = d;
         this.cima = cima;
         this.baixo = baixo;
-        setObjetos(Obj);
-    } 
-     public void iniciar(String Nome, String Descricao, Sala w, Sala s, Sala a, Sala d, Sala cima, Sala baixo, ListaDeObjetos Obj, Boolean status, Boolean saida) {
-        setNome(Nome);
-        setDescricao(Descricao);
-        this.w = w;
-        this.s = s;
-        this.a = a;
-        this.d = d;
-        this.cima = cima;
-        this.baixo = baixo;
-        //this.porta = Porta().setTrancada(status);
-        //this.porta = Porta().setSaida(saida);
+        this.porta = porta;
+        this.porta2 = porta2;
         setObjetos(Obj);
     }
 
@@ -90,6 +77,10 @@ public class Sala extends Suporte {
         this.baixo = baixo;
     }
 
+   public String fimDeJogo(){
+        return "Parabens, você conseguiu sobreviver e venceu o jogo\n";
+    }
+
     public String descricao(){
         String descricaoSala;
         String descricaoObjeto;
@@ -100,6 +91,22 @@ public class Sala extends Suporte {
             descricaoSala += "\nOBJETOS:\n" + descricaoObjeto;
         }
         return descricaoSala;
+    }
+
+    public Porta getPorta() {
+        return porta;
+    }
+
+    public void setPorta(Porta porta) {
+        this.porta = porta;
+    }
+
+    public Porta getPorta2() {
+        return porta2;
+    }
+
+    public void setPorta2(Porta porta2) {
+        this.porta2 = porta2;
     }
     
 }

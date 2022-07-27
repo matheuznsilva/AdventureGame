@@ -5,6 +5,7 @@ import java.util.*;
 
 import geral.Direcao;
 import objetos.Personagem;
+import objetos.Porta;
 import objetos.Sala;
 import objetos.Recipiente;
 import objetos.ListaDeObjetos;
@@ -77,30 +78,30 @@ public class Jogo implements Serializable{
         ListaDeCabanas.add(new Objetos("machado", "é um machado bem afiado", true, true, cabana));
         
         // inicialização de salas
-        inicio.iniciar("Inicio", "Aqui é o comeco da sua jornada", null, entrada, null, null, null, null, ListaVazia, false, false);
-        entrada.iniciar("Preso", "Agora nao tem mais volta, procure a saida", null, caverna, null, floresta, null, null, ListaVazia, false, false);
+        inicio.iniciar("Inicio", "Aqui é o comeco da sua jornada", null, entrada, null, null, null, null, ListaVazia, new Porta(false, false), new Porta(false, false));
+        entrada.iniciar("Preso", "Agora nao tem mais volta, procure a saida", null, caverna, null, floresta, null, null, ListaVazia, new Porta(false, false), new Porta(false, false));
         
-        floresta.iniciar("Floresta", "Uma floresta majestosa", null, cabana, entrada, floresta2, null, null, ListaDeFlorestas);
-        floresta2.iniciar("Floresta", "Uma floresta majestosa", null, null, floresta, floresta3, null, null, ListaDeFlorestas);
-        floresta3.iniciar("Floresta", "Uma floresta majestosa", null, null, floresta2, lago, null, null, ListaDeFlorestas);
-        lago.iniciar("Lago", "Fim da linha você chegou a um lago", null, null, floresta3, null, null, null, ListaDeFlorestas);
-        cabana.iniciar("Cabana", "Uma velha cabana de madeixa", floresta, null, caverna, null, null, null, ListaDeCabanas, false, false);
+        floresta.iniciar("Floresta", "Uma floresta majestosa", null, cabana, entrada, floresta2, null, null, ListaDeFlorestas, new Porta(false, false), new Porta(false, false));
+        floresta2.iniciar("Floresta", "Uma floresta majestosa", null, null, floresta, floresta3, null, null, ListaDeFlorestas, new Porta(false, false), new Porta(false, false));
+        floresta3.iniciar("Floresta", "Uma floresta majestosa", null, null, floresta2, lago, null, null, ListaDeFlorestas, new Porta(false, false), new Porta(false, false));
+        lago.iniciar("Lago", "Fim da linha você chegou a um lago", null, null, floresta3, null, null, null, ListaDeFlorestas, new Porta(false, false), new Porta(false, false));
+        cabana.iniciar("Cabana", "Uma velha cabana de madeixa", floresta, null, caverna, null, null, null, ListaDeCabanas, new Porta(false, false), new Porta(false, false));
         
-        caverna.iniciar("Caverna", "Uma caverna sombria com paredes cobertas de lodo", entrada, caverna2, null, cabana, null, null, ListaVazia, false, false);
-        caverna2.iniciar("Caverna", "Uma caverna sombria com paredes cobertas de lodo", caverna, caverna4, null, caverna3, null, null, ListaVazia, false, false);
-        caverna3.iniciar("Caverna", "Uma caverna sombria com paredes cobertas de lodo", null, null, caverna2, null, null, null, ListaVazia, false, false);
-        caverna4.iniciar("Caverna", "Uma caverna sombria com paredes cobertas de lodo", caverna2, null, salaDeTrolls, caverna5, null, null, ListaVazia, false, false);
-        caverna5.iniciar("Caverna", "Uma caverna sombria com paredes cobertas de lodo", null, null, caverna4, caverna6, null, null, ListaVazia, false, false);
-        caverna6.iniciar("Sala", "Uma caverna sombria com paredes cobertas de lodo", salaChave, salaDeTrolls2, caverna5, null, null, null, ListaVazia, false, false);
+        caverna.iniciar("Caverna", "Uma caverna sombria com paredes cobertas de lodo", entrada, caverna2, null, cabana, null, null, ListaVazia, new Porta(false, false), new Porta(false, false));
+        caverna2.iniciar("Caverna", "Uma caverna sombria com paredes cobertas de lodo", caverna, caverna4, null, caverna3, null, null, ListaVazia, new Porta(false, false), new Porta(false, false));
+        caverna3.iniciar("Caverna", "Uma caverna sombria com paredes cobertas de lodo", null, null, caverna2, null, null, null, ListaVazia, new Porta(false, false), new Porta(false, false));
+        caverna4.iniciar("Caverna", "Uma caverna sombria com paredes cobertas de lodo", caverna2, null, salaDeTrolls, caverna5, null, null, ListaVazia, new Porta(false, false), new Porta(false, false));
+        caverna5.iniciar("Caverna", "Uma caverna sombria com paredes cobertas de lodo", null, null, caverna4, caverna6, null, null, ListaVazia, new Porta(false, false), new Porta(false, false));
+        caverna6.iniciar("Sala", "Uma caverna sombria com paredes cobertas de lodo", salaChave, salaDeTrolls2, caverna5, null, null, null, ListaVazia, new Porta(false, false), new Porta(false, false));
         
-        salaDeTrolls.iniciar("Sala do Troll que protege o tesouro", "Uma caverna fedorenta", null, salaDoTesouro, null, caverna4, null, null, ListaDeCavernas, false, false);
-        salaDeTrolls2.iniciar("Sala do Troll que protege a saida", "Uma caverna fedorenta", caverna6, salaFinal, null, null, null, null, ListaDeCavernas, false, false);
+        salaDeTrolls.iniciar("Sala do Troll que protege o tesouro", "Uma caverna fedorenta", null, salaDoTesouro, null, caverna4, null, null, ListaDeCavernas, new Porta(false, false), new Porta(false, false));
+        salaDeTrolls2.iniciar("Sala do Troll que protege a saida", "Uma caverna fedorenta", caverna6, salaFinal, null, null, null, null, ListaDeCavernas, new Porta(false, false), new Porta(false, false));
 
-        salaDoTesouro.iniciar("Sala do Tesouro", "Uma sala cheia dos mais belos tesouros", salaDeTrolls, null, null, null, null, null, ListaDeTesouro, true, false);
-        salaChave.iniciar("Sala da Chave", "Uma caverna sombria com paredes cobertas de lodo", null, caverna6, null, null, null, null, ListaDeChaves, false, false);
+        salaDoTesouro.iniciar("Sala do Tesouro", "Uma sala cheia dos mais belos tesouros", salaDeTrolls, null, null, null, null, null, ListaDeTesouro, new Porta(false, false), new Porta(false, false));
+        salaChave.iniciar("Sala da Chave", "Uma caverna sombria com paredes cobertas de lodo", null, caverna6, null, null, null, null, ListaDeChaves, new Porta(false, false), new Porta(false, false));
         
-        salaFinal.iniciar("Saida", "Parabens você chegou à saida, tente abria a porta", salaDeTrolls2, saida, null, null, null, null, ListaVazia, true, true);
-        saida.iniciar("Fim", "Fim de jogo", null, null, null, null, null, null, ListaDeCavernas);
+        salaFinal.iniciar("Saida", "Parabens você chegou à saida, tente abria a porta", salaDeTrolls2, saida, null, null, null, null, ListaVazia, new Porta(true, true), new Porta(false, false));
+        saida.iniciar("Fim", "Fim de jogo - digite q para sair", null, null, null, null, null, null, ListaDeCavernas, new Porta(true, false), new Porta(false, false));
         
         
         mapa.add(inicio);
@@ -149,7 +150,7 @@ public class Jogo implements Serializable{
         return Jogador.colocar(nome);
     }
 
-    void moverJogador(Direcao Dir) {                
+    void moverJogador(Direcao Dir) {    
         if (Jogador.moverPara(Dir)) {
             olharEmVolta();            
         } else {

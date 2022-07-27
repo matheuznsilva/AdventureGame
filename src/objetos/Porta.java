@@ -1,9 +1,9 @@
 package objetos;
 
 public class Porta extends Sala{
+ 
     private boolean Trancada;
     private boolean Saida;
-    private Integer I;
 
     public Porta(boolean trancada, boolean saida) {
         Trancada = trancada;
@@ -24,5 +24,12 @@ public class Porta extends Sala{
 
     public void setSaida(boolean saida) {
         Saida = saida;
+    }
+
+    public String toString() {
+        return "A Porta esta trancada procure a chave\n";
+    }
+    public String toString2() {
+        return "Parabéns você chegou a porta de saida, tudo que precisa fazer eh atravessa-la\n";
     }
 }

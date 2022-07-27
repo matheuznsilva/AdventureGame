@@ -213,30 +213,95 @@ public class Personagem extends Suporte{
         return Str;
     }
 
-    public Boolean moverPara(Direcao Dir){
-        Sala sala;
-        Sala saida;
-        Boolean Mov = false;
+    /*public Boolean consultaSaida(){
+        Sala sala = getLocal();
+        Porta porta = sala.getPorta();
+        return porta.isSaida();
+    }*/
 
-        sala = getLocal();
+    public Boolean moverPara(Direcao Dir){
+        Sala saida, sala = getLocal();
+        Boolean Mov = false;
+        Porta porta = sala.getPorta();
         switch(Dir){
             case NORTE:{
-                saida = sala.getW();
+                if(porta.isSaida()){
+                    porta = sala.getPorta2();
+                    if(!porta.isTrancada()){
+                        saida = sala.getW();
+                    } else{
+                        saida = null;
+                        System.out.println(porta.toString());
+                    }
+                } else{
+                    if(!porta.isTrancada()){
+                        saida = sala.getW();
+                    } else{
+                        saida = null;
+                        System.out.println(porta.toString());
+                    }
+                }
                 break;
             }
             case SUL:{
-                saida = sala.getS();
-                break;
+                if(porta.isSaida()){
+                    porta = sala.getPorta2();
+                    if(!porta.isTrancada()){
+                        saida = sala.getS();
+                    } else{
+                        saida = null;
+                        System.out.println(porta.toString());
+                    }
+                } else{
+                    if(!porta.isTrancada()){
+                        saida = sala.getS();
+                    } else{
+                        saida = null;
+                        System.out.println(porta.toString());
+                    }
+                }
+               break;
             }
             case LESTE:{
-                saida = sala.getD();
+                if(porta.isSaida()){
+                    porta = sala.getPorta2();
+                    if(!porta.isTrancada()){
+                        saida = sala.getD();
+                    } else{
+                        saida = null;
+                        System.out.println(porta.toString());
+                    }
+                } else{
+                    if(!porta.isTrancada()){
+                        saida = sala.getD();
+                    } else{
+                        saida = null;
+                        System.out.println(porta.toString());
+                    }
+                }
                 break;
             }
             case OESTE:{
-                saida = sala.getA();
+                if(porta.isSaida()){
+                    porta = sala.getPorta2();
+                    if(!porta.isTrancada()){
+                        saida = sala.getA();
+                    } else{
+                        saida = null;
+                        System.out.println(porta.toString());
+                    }
+                } else{
+                    if(!porta.isTrancada()){
+                        saida = sala.getA();
+                    } else{
+                        saida = null;
+                        System.out.println(porta.toString());
+                    }
+                }
                 break;
             }
             case CIMA:{
+              
                 saida = sala.getCima();
                 break;
             }
